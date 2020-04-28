@@ -1,2 +1,2 @@
 # PragrammingPractice
-Contains programs practiced by me
+Contains programs practiced by Nitin
