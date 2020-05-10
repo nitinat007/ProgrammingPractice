@@ -10,6 +10,7 @@ Important Points
 * k-ary tree: A tree where every node has either 0 or k children
 *  In Binary tree, number of leaf nodes is always one more than nodes with two children.
 * AVL tree is a self-balancing Binary Search Tree (BST) where the difference between heights of left and right subtrees cannot be more than one for all nodes.  The height of an AVL tree is always O(Logn) where n is the number of nodes in the tree. We make sure that height of the tree remains O(Logn) after every insertion and deletion.
+  For details: https://www.baeldung.com/java-avl-trees
 
 
 
