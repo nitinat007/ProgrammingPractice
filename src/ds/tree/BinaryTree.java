@@ -22,92 +22,7 @@ public class BinaryTree {
         root = new Node(data);
     }
 
-    public void inorderTraversal(Node node) {
-        if (node != null) {
-            inorderTraversal(node.left);
-            System.out.print(node.data + " ");
-            inorderTraversal(node.right);
-        }
-    }
-
-    public void preorderTraversal(Node node) {
-        if (node != null) {
-            System.out.print(node.data + " ");
-            preorderTraversal(node.left);
-            preorderTraversal(node.right);
-        }
-    }
-
-    public void postorderTraversal(Node node) {
-        if (node != null) {
-            postorderTraversal(node.left);
-            postorderTraversal(node.right);
-            System.out.print(node.data + " ");
-        }
-    }
-
-    public void levelorderTraversal(Node node) {
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(node);
-        while (!queue.isEmpty()) {
-            Node polledNode = queue.poll();
-            if (polledNode != null) {
-                System.out.print(polledNode.data + " ");
-                queue.add(polledNode.left);
-                queue.add(polledNode.right);
-            }
-        }
-    }
-
-    public void preorderNonrecursive(Node root) {
-
-        if (root == null) {
-            return;
-        }
-        Stack<Node> stack = new Stack<>();
-        stack.push(root);
-        while (true) {
-            Node nd = stack.pop();
-            System.out.print(nd.data + " ");
-            if (nd.right != null) {
-                stack.push(nd.right);
-            }
-            if (nd.left != null) {
-                stack.push(nd.left);
-            }
-            if (stack.isEmpty()) {
-                break;
-            }
-        }
-        return;
-    }
-
-    public void inorderNonrecursive(Node root) {
-
-        if (root == null) {
-            return;
-        }
-        Node tmp;
-        Stack<Node> stack = new Stack<>();
-        stack.push(root);
-        tmp = stack.peek();
-        while (!stack.isEmpty()) {
-            while (tmp.left != null) {
-                tmp = tmp.left;
-                stack.push(tmp);
-            }
-            tmp = stack.pop();
-            System.out.print(tmp.data + " ");
-            if (tmp.right != null) {
-                tmp = tmp.right;
-                stack.push(tmp);
-            }
-        }
-
-        return;
-    }
-
-    //Important
+    //**
     public void deleteANode(Node rootNode, Node nodeToDelete) {
         Node deepestNode = utils.findDeepestNode(rootNode);
         //System.out.println("deepest Node: " + deepestNode);
@@ -150,25 +65,28 @@ public class BinaryTree {
          */
         System.out.println(" Tree is " + bTree.root);
         System.out.print("***\nInorder traversal:");
-        bTree.inorderTraversal(bTree.root);
+        BinaryTreeTraversals.inorderTraversal(bTree.root);
         System.out.print("\nInorder traversal Non recursive:");
-        bTree.inorderNonrecursive(bTree.root);
+        BinaryTreeTraversals.inorderNonrecursive(bTree.root);
+        System.out.print("\nInorder traversal stackless:");
+        BinaryTreeTraversals.stacklessInorderTraversal(bTree.root);
         System.out.print("\nPreorder traversal:");
-        bTree.preorderTraversal(bTree.root);
+        BinaryTreeTraversals.preorderTraversal(bTree.root);
         System.out.print("\nPreorder traversal Non recursive:");
-        bTree.preorderNonrecursive(bTree.root);
+        BinaryTreeTraversals.preorderNonrecursive(bTree.root);
         System.out.print("\nPostorder traversal:");
-        bTree.postorderTraversal(bTree.root);
+        BinaryTreeTraversals.postorderTraversal(bTree.root);
         System.out.print("\nLevelorder traversal:");
-        bTree.levelorderTraversal(bTree.root);
+        BinaryTreeTraversals.levelorderTraversal(bTree.root);
         System.out.println("\n****\nDeleting Node " + bTree.root.left.right.data + " from tree with root node " + bTree.root.data);
         System.out.print("Inorder traversal before deletion:");
-        bTree.inorderTraversal(bTree.root);
+        BinaryTreeTraversals.inorderTraversal(bTree.root);
         bTree.deleteANode(bTree.root, bTree.root.left.right);
         System.out.print("\nInorder traversal after deletion:");
-        bTree.inorderTraversal(bTree.root);
+        BinaryTreeTraversals.inorderTraversal(bTree.root);
     }
 }
+
 /*
  Output
 
