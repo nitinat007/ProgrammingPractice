@@ -101,7 +101,7 @@ public class BinaryTreeTraversals {
      * In this traversal, we first create links to Inorder successor and print the data using these links, and finally revert the changes to restore original tree.
      * Based on Morris Traversal
      * Time Complexity: O(n)
-     *
+     * Level: 4
      * @param root
      */
     public static void stacklessInorderTraversal(Node root) {
