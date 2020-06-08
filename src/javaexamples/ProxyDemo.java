@@ -1,4 +1,4 @@
-package org.language;
+package javaexamples;
 
 /**
  * Author: nitinkumar
