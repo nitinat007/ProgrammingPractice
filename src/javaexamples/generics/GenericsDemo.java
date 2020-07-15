@@ -2,6 +2,10 @@ package javaexamples.generics;
 
 public class GenericsDemo {
 
+   <T extends Number> GenericsDemo(T t){ //generic constructor
+       System.out.println("Constructor creation: t is from "+t.getClass().getName()+ " class");
+   }
+
     public static void main(String[] args) {
         System.out.println("\n** generic class demo **");
         Gen<String, Integer> obj = new Gen<>("Nitin", 1);
@@ -12,6 +16,9 @@ public class GenericsDemo {
         System.out.println(obj2.getValue());
         System.out.println("\n** generic method demo **");
         display(new String("SomeString"),new Integer(1));
+        System.out.println("\n** generic constructor demo **");
+        GenericsDemo gd= new GenericsDemo(new Integer("1"));
+        GenericsDemo gd1= new GenericsDemo(new Double("1.1"));
     }
 
     static <T,U> void display(T t, U u){
@@ -48,4 +55,8 @@ One
 ** generic method demo **
 t is from java.lang.String class
 u is from java.lang.Integer class
+
+** generic constructor demo **
+Constructor creation: t is from java.lang.Integer class
+Constructor creation: t is from java.lang.Double class
  */
