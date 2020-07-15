@@ -19,3 +19,8 @@ class EnumDemo {
         System.out.println("Age of Smith is " + Student.Smith.getAge() + "years");
     }
 }
+
+/*
+O/P:
+Age of Smith is 11years
+ */
