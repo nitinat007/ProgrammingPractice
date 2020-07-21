@@ -16,17 +16,17 @@ public class StoppingInterruptingThread {
         Thread t12 = new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println("setting running to true");
+                System.out.println("setting running to true for t12");
                 running = true;
                 while (running) {
-                    System.out.println("running..");
+                    System.out.println("running.. t12");
                 }
             }
 
         });
         t12.start();
         TimeUnit.MILLISECONDS.sleep(1);
-        System.out.println("setting running to false");
+        System.out.println("setting running to false for t12");
         running = false;
         TimeUnit.MILLISECONDS.sleep(1);
 
@@ -46,11 +46,11 @@ public class StoppingInterruptingThread {
         Thread t15 = new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println("running..");
+                System.out.println("running.. t15");
                 try {
                     TimeUnit.SECONDS.sleep(10);
                 } catch (InterruptedException e) {
-                    System.out.println("Interrupted..");
+                    System.out.println("Interrupted.. t15");
                     //e.printStackTrace();
                 }
 
@@ -70,14 +70,14 @@ class Thread1 extends Thread {
     public void run() {
         running = true;
         while (running)
-            System.out.println("Running.."); //This might not work if thread is in WAITING. AtomicBoolean is better approach
+            System.out.println("Running.. Thread1"); //This might not work if thread is in WAITING. AtomicBoolean is better approach
     }
 
     @Override
     public void interrupt() { //instead of overriding , we can have different method like stopThread()
         // Thread.currentThread().interrupt(); this did not work
         running = false;
-        System.out.println("Interrupting..");
+        System.out.println("Interrupting.. Thread1");
     }
 
 }
@@ -99,20 +99,19 @@ class Thread2 extends Thread {
 
 }
 /*
-setting running to true
-running..
-running..
+setting running to true for t12
+running.. t12
+running.. t12
 ..
-..
-running..
-setting running to false
-running..
+running.. t12
+setting running to false for t12
+running.. t12
 
-Running..
-Running..
+Running.. Thread1
+Running.. Thread1
 ..
-Running..
-Interrupting..
+Running.. Thread1
+Interrupting.. Thread1
 
 Running.. Thread2
 Running.. Thread2
@@ -120,6 +119,6 @@ Running.. Thread2
 Running.. Thread2
 Interrupting.. Thread2
 
-running..
-Interrupted..
+running.. t15
+Interrupted.. t15
  */
