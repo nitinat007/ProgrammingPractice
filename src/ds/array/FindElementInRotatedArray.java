@@ -13,6 +13,8 @@ public class FindElementInRotatedArray {
         printPositionOfElement(arr, toFind, 0, arr.length - 1);
         toFind = 7;
         printPositionOfElement(arr, toFind, 0, arr.length - 1);
+        toFind = 15;
+        printPositionOfElement(arr, toFind, 0, arr.length - 1);
     }
 
     private static void printPositionOfElement(int[] arr, int find, int start, int end) {
@@ -45,3 +47,9 @@ public class FindElementInRotatedArray {
 
     }
 }
+/*
+O/P:
+4 found at position 10
+Found 7 at position 1
+Element not found
+ */
