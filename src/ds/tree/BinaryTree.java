@@ -78,6 +78,8 @@ public class BinaryTree {
         BinaryTreeTraversals.postorderTraversal(bTree.root);
         System.out.print("\nLevelorder traversal:");
         BinaryTreeTraversals.levelorderTraversal(bTree.root);
+        System.out.print("\nReverse Levelorder traversal:");
+        BinaryTreeTraversals.reverseLevelOrderTraversal(bTree.root);
         System.out.println("\n****\nDeleting Node " + bTree.root.left.right.data + " from tree with root node " + bTree.root.data);
         System.out.print("Inorder traversal before deletion:");
         BinaryTreeTraversals.inorderTraversal(bTree.root);
