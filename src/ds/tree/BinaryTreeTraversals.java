@@ -49,6 +49,25 @@ public class BinaryTreeTraversals {
         }
     }
 
+    public static void reverseLevelOrderTraversal(Node node) {
+        Queue<Node> queue = new LinkedList<>();
+        Stack<Node> stack = new Stack<>();
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            Node tmpNode = queue.poll();
+            if (tmpNode != null) {
+                stack.push(tmpNode);
+                queue.add(tmpNode.right);
+                queue.add(tmpNode.left);
+            }
+        }
+
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop().data + " ");
+        }
+
+    }
+
     public static void preorderNonrecursive(Node root) {
 
         if (root == null) {
@@ -102,6 +121,7 @@ public class BinaryTreeTraversals {
      * Based on Morris Traversal
      * Time Complexity: O(n)
      * Level: 4
+     *
      * @param root
      */
     public static void stacklessInorderTraversal(Node root) {
