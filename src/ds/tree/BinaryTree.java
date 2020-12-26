@@ -11,14 +11,14 @@ import java.util.Stack;
  **/
 
 public class BinaryTree {
-    Node root;
+    public Node root;
     TreeUtils utils = new TreeUtils();
 
-    BinaryTree() {
+    public BinaryTree() {
         root = null;
     }
 
-    BinaryTree(int data) {
+    public BinaryTree(int data) {
         root = new Node(data);
     }
 
