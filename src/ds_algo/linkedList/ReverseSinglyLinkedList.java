@@ -14,8 +14,10 @@ public class ReverseSinglyLinkedList {
         linkedList.push(12);
         linkedList.push(13);
         linkedList.push(14);
+        System.out.print("Original LL: ");
         linkedList.print();
         LinkedList linkedListReversed = reverseLL(linkedList);
+        System.out.print("Reversed LL: ");
         linkedListReversed.print();
     }
 
@@ -30,3 +32,8 @@ public class ReverseSinglyLinkedList {
         return linkedListReversed;
     }
 }
+/*
+O/P:
+Original LL:  14 13 12 11 10
+Reversed LL:  10 11 12 13 14
+ */
