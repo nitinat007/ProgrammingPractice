@@ -14,6 +14,15 @@ public class LinkedList {
         head = newNode;
     }
 
+    public int pop() {
+        int data = -1;
+        if (head != null) {
+            data = head.data;
+            head = head.next;
+        }
+        return data;
+    }
+
     public void search(int toSearch) {
         Node current = head;
         while (current != null) {
@@ -26,10 +35,10 @@ public class LinkedList {
         System.out.println(toSearch + " Not found");
     }
 
-    public void print(){
+    public void print() {
         Node current = head;
         while (current != null) {
-            System.out.print(" "+current.data);
+            System.out.print(" " + current.data);
             current = current.next;
         }
         System.out.println();
