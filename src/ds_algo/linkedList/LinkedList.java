@@ -9,12 +9,12 @@ package ds_algo.linkedList;
 public class LinkedList {
     Node head;
 
-    public void push(int val) { //insert in the front of LL
+    public void add(int val) { //insert in the front of LL
         Node newNode = new Node(val, head);
         head = newNode;
     }
 
-    public int pop() {
+    public int remove() {
         int data = -1;
         if (head != null) {
             data = head.data;
@@ -42,6 +42,36 @@ public class LinkedList {
             current = current.next;
         }
         System.out.println();
+    }
+
+    boolean isEmpty() {
+        return head == null;
+    }
+
+    int getHeadNodeValue() {
+        if (head == null) {
+            return -1;
+        } else {
+            return head.data;
+        }
+    }
+
+    void reverse() {
+        if (head == null) {
+            return;
+        }
+        Node head2 = null;
+        while (head != null) {
+            Node temp = new Node(head.data, null);
+            if (head2 == null) {
+                head2 = temp;
+            } else {
+                temp.next = head2;
+                head2 = temp;
+            }
+            head = head.next;
+        }
+        head = head2;
     }
 }
 
