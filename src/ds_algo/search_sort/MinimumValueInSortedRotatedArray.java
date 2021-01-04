@@ -1,4 +1,4 @@
-package ds_algo.array.search;
+package ds_algo.search_sort;
 
 /**
  * Author: nitinkumar
