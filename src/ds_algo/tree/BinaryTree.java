@@ -38,6 +38,17 @@ public class BinaryTree {
         }
     }
 
+    public int sizeOfTree() {
+        return size(root);
+    }
+
+    public int size(Node node) {
+        if (node == null) {
+            return 0;
+        } else
+            return 1 + size(node.left) + size(node.right);
+    }
+
     public static void main(String args[]) {
         BinaryTree bTree = new BinaryTree();
         bTree.root = new Node(10);

@@ -9,11 +9,11 @@ package ds_algo.linkedList;
 public class ReverseSinglyLinkedList {
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
-        linkedList.push(10);
-        linkedList.push(11);
-        linkedList.push(12);
-        linkedList.push(13);
-        linkedList.push(14);
+        linkedList.add(10);
+        linkedList.add(11);
+        linkedList.add(12);
+        linkedList.add(13);
+        linkedList.add(14);
         System.out.print("Original LL: ");
         linkedList.print();
         LinkedList linkedListReversed = reverseLL(linkedList);
@@ -24,10 +24,10 @@ public class ReverseSinglyLinkedList {
     private static LinkedList reverseLL(LinkedList linkedList) {
         LinkedList linkedListReversed = new LinkedList();
         while (linkedList != null) {
-            int dataAtFront = linkedList.pop();
+            int dataAtFront = linkedList.remove();
             if (dataAtFront == -1)
                 break;
-            linkedListReversed.push(dataAtFront);
+            linkedListReversed.add(dataAtFront);
         }
         return linkedListReversed;
     }

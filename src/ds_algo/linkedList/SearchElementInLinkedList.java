@@ -9,11 +9,11 @@ package ds_algo.linkedList;
 public class SearchElementInLinkedList {
     public static void main(String[] args) {
         LinkedList linkedList=new LinkedList();
-        linkedList.push(10);
-        linkedList.push(11);
-        linkedList.push(12);
-        linkedList.push(13);
-        linkedList.push(14);
+        linkedList.add(10);
+        linkedList.add(11);
+        linkedList.add(12);
+        linkedList.add(13);
+        linkedList.add(14);
         linkedList.print();
         linkedList.search(12);
         linkedList.search(13);
