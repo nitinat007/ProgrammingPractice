@@ -17,7 +17,7 @@ public class FindMissingNumberInArray {
         for (int i = 0; i <= arr.length; i++) {
             sum = sum + i;
         }
-        //instead use sum = (n)*(n+1)/2
+        // instead can use sum = (arr.length) * (arr.length + 1) / 2;
         int sumOfArr = 0;
         for (int i = 0; i < arr.length; i++) {
             sumOfArr = sumOfArr + arr[i];
