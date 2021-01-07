@@ -7,6 +7,8 @@ import ds_algo.tree.Node;
  * Created Date: 07/01/21
  * Info: Given a Level order traversal of a BS tree. Construct the tree
  * <p>
+ * Logic: Maintain a range of node value. Find first value in the range and form a node. Recursively do this for left and right node.
+ * Alternative approach: This is same question as form a BST from given Array of integers.
  * Time Complexity = O(n2)
  * Space Complexity = O(n)
  **/
