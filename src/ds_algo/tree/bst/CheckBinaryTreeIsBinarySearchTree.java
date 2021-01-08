@@ -40,7 +40,7 @@ public class CheckBinaryTreeIsBinarySearchTree {
         return checkIfBTIsBST(bTree.root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private static boolean checkIfBTIsBST(Node root, int minVal, int maxVal) { //root.data should be in range minVal to maxVal
+    public static boolean checkIfBTIsBST(Node root, int minVal, int maxVal) { //root.data should be in range minVal to maxVal
         if (root == null) {
             return true;
         }
