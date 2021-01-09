@@ -9,7 +9,7 @@ package ds_algo.array;
  * 'Important'
  * Logic: Count all values less than or equal to k (in variable lessThanK) and  count of all values b/w 0 and lessThanK which are more than k (in moreThanK)
  * Set a variable named 'result' to moreThanK. Run a for loop start from i=0,j=lessThanK till j is less than size of arr. if arr[i]>k then decrement moreThanK . if arr[j]>k decrement moreThanK. update result to min of result and moreThanK .
- **/
+ ***/
 
 //verify result once with multiple test data.
 public class MinimumSwapsToBringAllElementsLessThanKTogether {

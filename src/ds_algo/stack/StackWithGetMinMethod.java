@@ -10,7 +10,7 @@ import java.util.Stack;
  * "Important"
  * Logic: keep track of minVal variable while pushing and popping element in stack. while pushing x, check if x is less than minVal. If so then push (2*x - minVal) and update minVal to x.
  * Else push x. While popping check if popped element (say x is popped) is less than minVal. If so then return min value and update min to (2*minVal - x). Else return x.
- **/
+ ***/
 
 public class StackWithGetMinMethod {
     Stack<Integer> stack;
