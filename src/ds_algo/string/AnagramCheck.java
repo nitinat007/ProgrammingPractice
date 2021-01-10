@@ -8,7 +8,8 @@ package ds_algo.string;
  * Logics: Use any one
  * 1. store each char of both strings in two maps and compare map.
  * 2. use one array of size (26 or 256). increment value at ('char' - 97 ) position for each char in str1. Also decrement for chars in str2. Check if array is empty
- * 3. find ASCII sum of each char in str1 as count. decrement ASCII value of each char from count. Finally check if count is 0. SPace complexity= O(1). Time complexity= O(n)
+ * 3. Sort chars in Strings and compare each char. Time Complexity = n logn . Space Complexity= O(1)
+ * 4. find ASCII sum of each char in str1 as count. decrement ASCII value of each char from count. Finally check if count is 0. Space complexity= O(1). Time complexity= O(n). Best Solution.
  **/
 
 public class AnagramCheck {
