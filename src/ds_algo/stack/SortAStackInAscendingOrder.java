@@ -6,6 +6,9 @@ import java.util.Stack;
  * Author: nitinkumar
  * Created Date: 23/01/21
  * Info: Given a stack, sort the stack in ascending order from bottom to top.
+ * Constraints: You can use only stack.
+ * Approach: Create a stack (stack1) where we keep the elements in sorted order. While there are element in stack, pop element (element1) from the given stack (stack).
+ * Now keep popping elements from stack1 and push it to (original) stack till the element1 is greater than stack1.peek(). Now push element1 to stack1.
  **/
 
 public class SortAStackInAscendingOrder {
