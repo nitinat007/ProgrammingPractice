@@ -7,7 +7,7 @@ package ds_algo.tree;
  **/
 
 public class MaximumPathSumInBinaryTree {
-    private static int maxSum = 0; //variable keeps track of maximum sum b/w any pair of node
+    private static int maxSum = 0; //variable keeps track of maximum sum b/w any two pair of nodes
 
     public static void main(String[] args) {
         BinaryTree bTree = new BinaryTree();
@@ -61,21 +61,20 @@ public class MaximumPathSumInBinaryTree {
         System.out.println("For bTree1 the maximum path sum is " + maxSum);
     }
 
-    public static int maximumPathSum(Node node) {
+    public static int maximumPathSum(Node node) { //In fact this returns maximum path sum at the node
         if (node == null) {
             return 0;
         }
         int leftPathLength = maximumPathSum(node.left);
         int rightPathLength = maximumPathSum(node.right);
 
-        //check and update maxSum
-        // System.out.println("\ninitial maxSum=" + maxSum + " leftPathLength=" + leftPathLength + " rightPathLength=" + rightPathLength);
+        //check and update maxSum. Update maxSum if any of these (nodeData, nodeData+leftPathLength, nodeData+rightPathLength, nodeData+leftPathLength+rightPathLength ) are greater than current maxSum
         maxSum = Math.max(maxSum, node.data);
         maxSum = Math.max(maxSum, node.data + leftPathLength);
         maxSum = Math.max(maxSum, node.data + rightPathLength);
         maxSum = Math.max(maxSum, node.data + leftPathLength + rightPathLength);
-        // System.out.println("At node " + node.data + " maxSum = " + maxSum);
-        return Math.max(node.data, Math.max(node.data + leftPathLength, node.data + rightPathLength));
+
+        return Math.max(node.data, node.data + Math.max(leftPathLength, rightPathLength));
     }
 }
 /*
