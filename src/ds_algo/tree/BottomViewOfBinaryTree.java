@@ -1,6 +1,5 @@
 package ds_algo.tree;
 
-import java.util.HashMap;
 import java.util.TreeMap;
 
 /**
@@ -76,4 +75,7 @@ public class BottomViewOfBinaryTree {
 /*
 O/P:
 3 6 7 15 22 29
+
+Time Complexity: O(n log n) . Since TreeMap has complexity of O(logN) for insertion and lookup.
+Space Complexity: O(n)
  */
