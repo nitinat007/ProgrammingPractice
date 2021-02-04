@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Author: nitinkumar
  * Created Date: 13/01/21
- * Info: Given an array and a number K. Verify if an array can be divided into one or more pairs where sum of each pair is divisible by K.
+ * Info: Given an array and a number K. Verify if an array can be divided into pairs such that sum of each element in the pair is divisible by K.
  *
  * Approach: step by step below. arr given and k=7
  * arr =     {3, 5, 1, -8, 2, 4, 11, 3, 7, 14}
@@ -17,7 +17,7 @@ import java.util.Map;
  * Again traverse hashmap and check if frequency of element (e) and freq of {(k - e) % k} are same. if not then return false. Eg freq of 4 and 3 is 2 each.
  **/
 
-public class CheckIfArrayCanBeDividedIntoPairsSuchThatEachPairSumsUptoK {
+public class DivideArrayIntoPairsSuchThatEachPairSumsIsDivisibleByK {
     public static void main(String[] args) {
         int k = 7;
         int[] arr = {3, 5, 1, -8, 2, 4, 11, 3, 7, 14}; // pairs would be {3,4},{5,2},{1,-8},{11,3},{7,14}
