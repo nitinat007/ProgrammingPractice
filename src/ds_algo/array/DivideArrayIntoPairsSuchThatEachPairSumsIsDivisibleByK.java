@@ -11,7 +11,7 @@ import java.util.Map;
  * Approach: step by step below. arr given and k=7
  * arr =     {3, 5, 1, -8, 2, 4, 11, 3, 7, 14}
  *  return false if size of arr is odd
- * rem =     {3, 5, 1, -1, 2, 4, 4, 3, 0, 0}     // k-arr[i]
+ * rem =     {3, 5, 1, -1, 2, 4, 4, 3, 0, 0}     // arr[i] % k
  * compRem = {4, 2, 6, 1, 5, 3, 3, 4, 0, 0}      //(k-rem[i])%k
  * put compRem values and its frequency in a hashMap. So, we obtain hashmap entry: 4->2 , 2->1 , 6->1 , 1->1 , 5->1 , 3->2 , 0->2
  * Again traverse hashmap and check if frequency of element (e) and freq of {(k - e) % k} are same. if not then return false. Eg freq of 4 and 3 is 2 each.
