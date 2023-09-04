@@ -8,6 +8,10 @@ import java.util.List;
  * Author: kunitin
  * Created: 03/09/23
  * Info: Given a string containing only digits, restore it by returning all possible valid IP address combinations. Make sure the returned strings are sorted in order. A valid IP address must be in the form of A.B.C.D, where A,B,C and D are numbers from 0-255. The numbers cannot be 0 prefixed unless they are 0.
+ *
+ * Below soln is of Time Complexity: O(n^3), space comp: O(n)
+ *
+ * Can be solved using DP? Solve this. [Time Complexity: O(n), space comp: O(n)]
  **/
 
 public class ValidIpAddrFromString {
