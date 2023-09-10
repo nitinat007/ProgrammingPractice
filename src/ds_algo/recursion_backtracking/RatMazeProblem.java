@@ -1,4 +1,4 @@
-package ds_algo.backtracking;
+package ds_algo.recursion_backtracking;
 
 /**
  * Author: kunitin
