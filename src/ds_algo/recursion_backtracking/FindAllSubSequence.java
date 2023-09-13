@@ -8,6 +8,10 @@ import java.util.Arrays;
  * Info: Find all the sub sequences of an integer array
  * <p>
  * Hint: User recursion. Choose either to choose or not choose an element
+ * <p>
+ * Time complexity: O(2^n * n) . Every element can be choosen or not choosen (hence 2^n) . And for every element (choosen & not choosen), you traverse
+ * n element.
+ * Space complexity: O(n) . Maximum depth to store n element
  **/
 
 public class FindAllSubSequence {
