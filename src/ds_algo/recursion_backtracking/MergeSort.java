@@ -8,6 +8,9 @@ import java.util.Arrays;
  * Info: Sort an array of integer using merge sort
  * <p>
  * Approach: Divide and merge. Use Recursion
+ *
+ * Time complexity: for divide: O(log n) . For merge: O(n). Overall: O(n * log n)
+ * Space complexity: O(n) due to merge operation
  **/
 
 public class MergeSort {
