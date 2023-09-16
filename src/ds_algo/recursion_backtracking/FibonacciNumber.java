@@ -44,7 +44,7 @@ public class FibonacciNumber {
     }
 
 
-    //Approach 2 [DP?]
+    //Approach 2 [DP] Time complexity: O(n) for given n
     private static int createFibonacci(int n) {
         if (n == 1) {
             fibNum[1] = 1;
@@ -56,7 +56,7 @@ public class FibonacciNumber {
         return sum;
     }
 
-    //Approach 3
+    //Approach 3. Time complexity: O(2^n). Exponential, as every function calls two other functions.
     private static int createFibonacciSeries(int n) {
         if (n <= 1) {
             fibNum[n] = n;
