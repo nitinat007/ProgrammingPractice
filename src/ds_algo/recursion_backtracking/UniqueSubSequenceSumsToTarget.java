@@ -23,7 +23,7 @@ public class UniqueSubSequenceSumsToTarget {
         int[] arr = {1, 3, 2, 4, 5, 4}; //1,2,3,4,4,5
         int taget = 8;
 
-//        int[] arr = {4,5,7,8,9,1,4,6,2,1}; //1,2,3,4,4,5
+//        int[] arr = {4,5,7,8,9,1,4,6,2,1};
 //        int taget = 8;
         System.out.println("Input: " + Arrays.toString(arr));
         Arrays.sort(arr);
@@ -104,4 +104,13 @@ Sorted Input: [1, 2, 3, 4, 4, 5]
 [3, 5]
 [4, 4]
 ------
+ */
+
+/*
+Similar question: Given an int array that may contain duplicate element, return all subset such that subsets are not duplicate
+for arr={1,2,2}
+OP: [{},{1},{2},{1,2},{1,2,2},{2,2}]
+
+Approach: Find all subset of size 0, then size 1 then size 2 .... till n
+
  */
