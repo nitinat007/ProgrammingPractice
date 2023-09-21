@@ -26,6 +26,14 @@ public class FibonacciNumber {
         fibNum = new int[n];
         createFibonacciSeries(n);
         System.out.println("--->" + Arrays.toString(fibNum));
+
+        fibNum = new int[n];
+        createFibonacciSeries(n - 1, fibNum);
+        System.out.println("---->" + Arrays.toString(fibNum));
+
+        fibNum = new int[n];
+        populateFibonacciSeries(n, fibNum);
+        System.out.println("---->" + Arrays.toString(fibNum));
     }
 
     //Approach 1
@@ -44,10 +52,10 @@ public class FibonacciNumber {
     }
 
 
-    //Approach 2 [DP] Time complexity: O(n) for given n
+    //Approach 2. Time complexity: O(n) for given n
     private static int createFibonacci(int n) {
         if (n == 1) {
-            fibNum[1] = 1;
+            fibNum[1] = 1; //fibNum[0] is already 0
             return 1;
         }
         int prevNum = createFibonacci(n - 1);
@@ -71,6 +79,29 @@ public class FibonacciNumber {
         return last + sLast;
     }
 
+    //Approach 4. DP with recursion (top-down approach). Time Complexity is O(n) Space complexity: O(n) for dp + O(n) for method stack
+    private static void createFibonacciSeries(int n, int[] dp) {
+        if (n < 0) {
+            return;
+        }
+        if (n == 0 || n == 1) {
+            dp[n] = n;
+            return;
+        }
+        createFibonacciSeries(n - 1, dp); // this sets all the previous DP array values
+        dp[n] = dp[n - 1] + dp[n - 2];
+    }
+
+    //Approach 5. DP with Tabulation (bottom-up approach). Time complexity: O(n) Space complexity: O(n) for dp array
+    private static void populateFibonacciSeries(int n, int[] dp) {
+        dp[0] = 0;
+        dp[1] = 1;
+
+        for (int i = 2; i < n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+    }
+
 
 }
 /*
@@ -78,4 +109,6 @@ Output:
 0 1 1 2 3 5 8 13 21 34
 -->[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 --->[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+---->[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+---->[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
  */
