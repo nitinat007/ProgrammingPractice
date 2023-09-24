@@ -1,5 +1,7 @@
 package ds_algo.dp;
 
+import java.util.Arrays;
+
 /**
  * Author: kunitin
  * Created: 23/09/23
@@ -16,8 +18,15 @@ public class FrogJumpProblem {
         System.out.println(minEnergyUsed(E, E.length - 1));
 
         int[] dp = new int[E.length];
+        System.out.println(">" + minEnergyUsed(E, E.length - 1, dp));
+
+        dp = new int[E.length];
         minEnergyUsedDP(E, E.length - 1, dp);
         System.out.println("->" + dp[dp.length - 1]);
+
+        dp = new int[E.length];
+        System.out.println(minEnergyUsedTabulation(E, E.length, dp));
+
     }
 
 
@@ -37,6 +46,24 @@ public class FrogJumpProblem {
         return Math.min(n1, n2);
     }
 
+    //transforming above recursion into DP. Uses Memoization (top-down)
+    private static int minEnergyUsed(int[] E, int n, int[] dp) {
+        if (n <= 0) {
+            return 0;
+        }
+        if (dp[n] != 0) {
+            return dp[n];
+        }
+
+        //frog reaching n when jumping from n-1 th stair
+        int n1 = (n - 1 >= 0) ? minEnergyUsed(E, n - 1, dp) + Math.abs(E[n] - E[n - 1]) : E[n];
+
+        //frog reaching n when jumping from n-2 nd stair
+        int n2 = (n - 2 >= 0) ? minEnergyUsed(E, n - 2, dp) + Math.abs(E[n] - E[n - 2]) : E[n];
+
+        return dp[n] = Math.min(n1, n2);
+    }
+
     //DP
     private static void minEnergyUsedDP(int[] E, int n, int[] DP) {
         //System.out.println("** for n="+n);
@@ -48,7 +75,6 @@ public class FrogJumpProblem {
             return;
         }
 
-
         //Fill DP array
         minEnergyUsedDP(E, n - 1, DP);
         if (n >= 2) {
@@ -58,10 +84,30 @@ public class FrogJumpProblem {
         }
 
     }
+
+    // DP. Uses Tabulation (bottom-up)
+    private static int minEnergyUsedTabulation(int[] E, int n, int[] DP) {
+
+        DP[0] = 0;
+        for (int i = 1; i < n; i++) {
+            //if reaching i from i-1 th step
+            int fst = DP[i - 1] + Math.abs(E[i] - E[i - 1]);
+            //if reaching i from i-2 th step
+            int sec = Integer.MAX_VALUE;
+            if (i > 1) {
+                sec = DP[i - 2] + Math.abs(E[i] - E[i - 2]);
+            }
+            DP[i] = Math.min(fst, sec);
+        }
+
+        return DP[n - 1];
+
+    }
 }
 /*
 OP:
 40
+>40
 ->40
-
+40
  */
