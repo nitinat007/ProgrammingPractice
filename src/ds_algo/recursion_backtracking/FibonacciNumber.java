@@ -33,7 +33,7 @@ public class FibonacciNumber {
 
         fibNum = new int[n];
         populateFibonacciSeries(n, fibNum);
-        System.out.println("---->" + Arrays.toString(fibNum));
+        System.out.println("----->" + Arrays.toString(fibNum));
     }
 
     //Approach 1
@@ -110,5 +110,5 @@ Output:
 -->[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 --->[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 ---->[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
----->[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+----->[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
  */
