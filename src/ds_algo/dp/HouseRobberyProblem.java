@@ -19,16 +19,17 @@ public class HouseRobberyProblem {
 
     public static void main(String[] args) {
         //int[] H = {6,2,1,1,4}; //ans: 7
-        int[] H = {2, 1, 1, 4}; //ans: 5
+        //int[] H = {2, 1, 1, 4}; //ans: 5
         //int[] H = {2,1,6,1,4}; //ans: 10
-        //int[] H = {2, 1, 6, 1, 4, 7}; //ans: 13
+        int[] H = {2, 1, 6, 1, 4, 7}; //ans: 13
         //int[] H = {2,1}; //ans: 2
         //int[] H = {2}; //ans: 0 . Assumption: As only house is adjacent to itself and will have alarm system. Else we can return the only value.
         System.out.println("Input: " + Arrays.toString(H));
-        //recursive/ memoization solution
+
+        //recursive solution
         System.out.println("Max amount robbed: " + findMaximumRobbedAmount(H));
 
-        //tabulation solution
+        //DP solution
         System.out.println("Max amount robbed: " + findMaximumRobbedAmount2(H));
     }
 
@@ -43,22 +44,18 @@ public class HouseRobberyProblem {
     }
 
     private static int maxAmount(int[] H, int start, int end) {
-
         if (start > end || start < 0 || start >= H.length) {
             return 0;
         }
-
         //choose start house
         int amountCollected1 = H[start] + maxAmount(H, start + 2, end);
         //not choose start house
         int amountCollected2 = maxAmount(H, start + 1, end);
-
         return Math.max(amountCollected1, amountCollected2);
     }
 
     //using DP. Top-down
     private static int findMaximumRobbedAmount2(int[] h) {
-
         int[] dp = new int[h.length - 1];
         //choose first to 2nd last house
         int amt1 = maxAmount2(h, 0, h.length - 2, dp);
@@ -70,24 +67,32 @@ public class HouseRobberyProblem {
     }
 
     private static int maxAmount2(int[] H, int start, int end, int[] dp) {
-        //System.out.println("** start=" + start + ", end=" + end);
 
+        //adding for single element H
+        if (start > end) {
+            return 0;
+        }
+
+        // i track position of DP array. j tracks DP from i-2 to 0 position.
         for (int i = 0; i < dp.length; i++) {
             dp[i] = H[start + i];
-            System.out.println("j -> " + (i - 2) + " to " + start);
-            for (int j = i - 2; j >= start; j--) {
-                //System.out.println("in j=" + j);
+            for (int j = i - 2; j >= 0; j--) {
                 if (H[start + i] + dp[j] > dp[i]) {
                     dp[i] = H[start + i] + dp[j];
-                    //System.out.println("dp[" + i + "]=" + dp[i] + " i=" + i + ", j=" + j);
                 }
             }
 
         }
 
-        System.out.println("->" + Arrays.toString(dp));
+        //System.out.println("->" + Arrays.toString(dp));
         return dp[dp.length - 1];
 
     }
 
 }
+
+/*
+Input: [2, 1, 6, 1, 4, 7]
+Max amount robbed: 13
+Max amount robbed: 13
+ */
