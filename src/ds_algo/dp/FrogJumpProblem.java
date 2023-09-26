@@ -1,7 +1,5 @@
 package ds_algo.dp;
 
-import java.util.Arrays;
-
 /**
  * Author: kunitin
  * Created: 23/09/23
@@ -25,7 +23,9 @@ public class FrogJumpProblem {
         System.out.println("->" + dp[dp.length - 1]);
 
         dp = new int[E.length];
-        System.out.println(minEnergyUsedTabulation(E, E.length, dp));
+        System.out.println("-->" + minEnergyUsedTabulation(E, E.length, dp));
+
+        System.out.println("--->" + minEnergyUsedTabulationOptimized(E, E.length));
 
     }
 
@@ -85,7 +85,7 @@ public class FrogJumpProblem {
 
     }
 
-    // DP. Uses Tabulation (bottom-up)
+    // DP. Uses Tabulation (bottom-up). Time Comp: O(n) , space comp: O(n)
     private static int minEnergyUsedTabulation(int[] E, int n, int[] DP) {
 
         DP[0] = 0;
@@ -103,11 +103,35 @@ public class FrogJumpProblem {
         return DP[n - 1];
 
     }
+
+    // DP. Uses Tabulation (bottom-up). improve space complexity. Time Comp: O(n) , space comp: O(1)
+    //Note: Whenever we see a pattern of index-1 & index-2 we can always optimize the space complexity
+    private static int minEnergyUsedTabulationOptimized(int[] E, int n) {
+
+        int prev1 = 0;
+        int prev2 = 0;
+        for (int i = 1; i < n; i++) {
+            //if reaching i from i-1 th step
+            int fst = prev1 + Math.abs(E[i] - E[i - 1]);
+            //if reaching i from i-2 th step
+            int sec = Integer.MAX_VALUE;
+            if (i > 1) {
+                sec = prev2 + Math.abs(E[i] - E[i - 2]);
+            }
+            int curr = Math.min(fst, sec);
+            prev2 = prev1;
+            prev1 = curr;
+        }
+
+        return prev1;
+
+    }
 }
 /*
 OP:
 40
 >40
 ->40
-40
+-->40
+--->40
  */
